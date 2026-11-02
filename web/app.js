@@ -4,6 +4,7 @@ import * as F from "./forecast.js";
 import * as A from "./areas.js";
 import * as N from "./numerology.js";
 import * as L from "./lore.js";
+import * as C from "./compat.js";
 import { HOUSE_W, HOUSE_V, HOUSE_SHORT, PLANET, SIGN, LOT, PEAK, sectNote, cap, ELEMENT_OF, MODE_OF, ELEMENT, MODE,
   ASPECT, BIG3, GLOSS, WQ, EXALT, ZR_SIGN, PERIOD_PLANET, HOUSE_SHOWS, PLANET_RUNS, PLANET_ROLE, SIGN_STYLE, PLANET_ELEMENT, RISING_ELEMENT, ELEMENT_LIFE, MISSING_EL, MODE_LIFE, ASP_PRACT, SIGN_PARTNER, SIGN_CAREER, SIGN_MONEY, SIGN_HOME } from "./meanings.js";
 
@@ -113,7 +114,7 @@ function chartBar() {
     <div class="cb-actions">${sysSwitch()}<button class="btn" id="editBirth" type="button">${S.isExample ? "Enter your birth details" : "Edit birth details"}</button></div>`;
   $("#editBirth").onclick = () => openForm();
 }
-const TABS = [["today", "Today"], ["month", "Your month"], ["year", "Your year"], ["chart", "Your chart"], ["ask", "Ask a question"], ["timeline", "Life timeline"], ["map", "World map"], ["lore", "Star lore"], ["numerology", "Numerology"], ["events", "Check past events"]];
+const TABS = [["today", "Today"], ["month", "Your month"], ["year", "Your year"], ["chart", "Your chart"], ["compat", "Compatibility"], ["ask", "Ask a question"], ["timeline", "Life timeline"], ["map", "World map"], ["lore", "Star lore"], ["numerology", "Numerology"], ["events", "Check past events"]];
 function nav() {
   $("#tabs").innerHTML = TABS.map(([id, label]) =>
     `<a href="#${id}" class="tab${S.tab === id ? " on" : ""}" ${S.tab === id ? 'aria-current="page"' : ""}>${label}</a>`).join("");
@@ -121,8 +122,8 @@ function nav() {
 function render() {
   chartBar(); nav();
   $("#signs").innerHTML = signsStrip();
-  $("#view").innerHTML = ({ today: viewToday, month: viewMonth, year: viewYear, ask: viewAsk, timeline: viewTimeline, events: viewEvents, chart: viewChart, map: viewMap, about: viewAbout, numerology: viewNumerology, lore: viewLore }[S.tab])();
-  ({ today: bindToday, month: bindMonth, ask: bindAsk, timeline: bindTimeline, events: bindEvents, chart: bindChart, year: bindYear, map: bindMap, about: bindAbout, numerology: bindNumerology, lore: bindLore }[S.tab] || (() => {}))();
+  $("#view").innerHTML = ({ today: viewToday, month: viewMonth, year: viewYear, ask: viewAsk, timeline: viewTimeline, events: viewEvents, chart: viewChart, map: viewMap, about: viewAbout, numerology: viewNumerology, lore: viewLore, compat: viewCompat }[S.tab])();
+  ({ today: bindToday, month: bindMonth, ask: bindAsk, timeline: bindTimeline, events: bindEvents, chart: bindChart, year: bindYear, map: bindMap, about: bindAbout, numerology: bindNumerology, lore: bindLore, compat: bindCompat }[S.tab] || (() => {}))();
 }
 function route() {
   const h = location.hash.replace("#", "");
@@ -156,7 +157,7 @@ function startHere() {
     <ol class="steps">
       <li><strong>Your chart is a snapshot of the sky when you were born.</strong> The app works out where the Sun, Moon and planets were from your birth date, time and place.</li>
       <li><strong>Pick a system with the Western / Vedic switch at the top.</strong> Western is the astrology most common in the US and Europe. Vedic comes from India. They measure the zodiac differently, so each gives different signs and readings.</li>
-      <li><strong>Read what's going on now.</strong> This page is your daily horoscope, split into love, career, money, home, health and friends. <a href="#month">Your month</a> goes week by week, and <a href="#year">Your year</a> covers the next 12 months. <a href="#ask">Ask a question</a> answers a specific topic like work or marriage, <a href="#timeline">Life timeline</a> shows the bigger picture, and <a href="#lore">Star lore</a> has the older techniques: planetary hours, decans and tarot, fixed stars and the Hindu almanac.</li>
+      <li><strong>Read what's going on now.</strong> This page is your daily horoscope, split into love, career, money, home, health and friends. <a href="#month">Your month</a> goes week by week, and <a href="#year">Your year</a> covers the next 12 months. <a href="#ask">Ask a question</a> answers a specific topic like work or marriage, <a href="#timeline">Life timeline</a> shows the bigger picture. <a href="#compat">Compatibility</a> compares your chart with someone else's, and <a href="#lore">Star lore</a> has the older techniques: planetary hours, decans and tarot, fixed stars and the Hindu almanac.</li>
       <li><strong>Tap any word with a dotted underline</strong>, like ${g("house", "house")}, to see what it means.</li>
     </ol>
     <p class="fine">Readings describe what each tradition says. Astrology hasn't been shown to predict events, so use this for reflection, not instructions.</p>
@@ -1321,6 +1322,127 @@ function bindLore() {
     res.querySelectorAll("button").forEach((b) => { b.onclick = () => { const c = list[+b.dataset.i];
       store.set("nightalmanac.here", { place: placeLabel(c), lat: c.lat, lon: c.lon, tz: c.tz }); S.lore = null; render(); }; });
   };
+}
+
+// ---------------------------------------------------------------- Compatibility
+const PEOPLE_KEY = "nightalmanac.people";
+const people = () => store.get(PEOPLE_KEY, []);
+const ASP_WORD = { conjunction: "are joined", trine: "flow together", sextile: "support each other", square: "clash", opposition: "pull in opposite directions" };
+const PT_LABEL = (who, p) => `${who} ${p === "Rising" ? "rising sign" : p}`;
+function personChart(p) {
+  if (!S.pCache) S.pCache = {};
+  if (!S.pCache[p.id]) S.pCache[p.id] = E.computeChart({ y: p.y, m: p.m, d: p.d, h: p.timeKnown ? p.h : 12, mi: p.timeKnown ? p.mi : 0, lat: p.lat, lon: p.lon, tz: p.tz });
+  return S.pCache[p.id];
+}
+function compatForm() {
+  return `<form class="card compatform" id="pForm" hidden>
+    <header class="card-h"><h3>Add someone</h3></header>
+    <div class="formgrid">
+      <div class="row"><label for="pName">Their name or nickname</label><input id="pName" type="text" maxlength="40" required></div>
+      <div class="row"><label for="pRel">Relationship</label><select id="pRel"><option value="love">Partner or love interest</option><option value="friend">Friend or family</option></select></div>
+      <div class="row"><label for="pDate">Birth date</label><input id="pDate" type="date" required min="1900-01-01" max="2100-12-31"></div>
+      <div class="row"><label for="pTime">Birth time</label><input id="pTime" type="time" value="12:00">
+        <label class="checkline"><input type="checkbox" id="pNoTime"> I don't know their birth time</label></div>
+      <div class="row placewrap"><label for="pPlace">Birthplace</label><input id="pPlace" type="text" autocomplete="off" placeholder="Start typing a city" required>
+        <ul id="pPlaceRes" class="cityres"></ul><p class="fine" id="pPlacePicked"></p></div>
+    </div>
+    <p class="err" id="pErr" hidden></p>
+    <div class="btns"><button type="submit" class="btn btn-primary">Save and compare</button><button type="button" class="btn" id="pCancel">Cancel</button></div>
+    <p class="fine">Their details are saved only on this device, like yours. Please only add people who'd be comfortable with it.</p>
+  </form>`;
+}
+function synastryHTML(p, rel) {
+  const s = C.synastry(S.chart, personChart(p), S.birth.reliability === "certificate", p.timeKnown), nm = esc(p.name);
+  const FR_WORD = { good: "Low friction", mixed: "Some friction", low: "High friction", quiet: "Quiet" };
+  const themeCards = s.themes.map((t) => {
+    const items = t.found.slice(0, 4).map((c) => {
+      const tone = c.score > 0 ? "t-up" : c.score < 0 ? "t-down" : "t-flat";
+      return `<li class="${tone}"><strong>${PT_LABEL("Your", c.a)} and ${PT_LABEL(`${nm}'s`, c.b)} ${ASP_WORD[c.type]}</strong> (a ${c.type}, within ${c.orb.toFixed(1)}°): ${esc(c.means)}.</li>`; }).join("");
+    const word = t.id === "friction" ? FR_WORD[t.tone] : TONE_WORD[t.tone];
+    return `<article class="card"><header class="card-h"><h3>${rel === "love" ? t.love : t.friend}</h3>${tonePillL(t.tone, word)}</header>
+      <p class="fine">About ${t.what}.</p>
+      ${items ? `<ul class="daylist">${items}</ul>` : `<p>No close contacts here, so this area isn't strongly marked either way. It depends more on the two of you than on the stars.</p>`}</article>`;
+  }).join("");
+  const best = s.themes.filter((t) => t.id !== "friction" && t.tone === "good").map((t) => (rel === "love" ? t.love : t.friend).toLowerCase());
+  const fr = s.themes.find((t) => t.id === "friction");
+  const elLine = (k, a, b) => ({ same: `both ${a}`, complementary: `${a} and ${b}, a naturally complementary pair`, different: `${a} and ${b}, which work differently` })[k];
+  return `<article class="card lorenow"><header class="card-h"><h3>You and ${nm}</h3>${sysTag("Western")}</header>
+      <p class="inshort"><strong>In short:</strong> ${best.length ? `your strongest links are ${best.join(" and ")}` : "no single area stands out strongly"}${fr.tone === "low" ? ", and there's real friction to manage" : fr.tone === "mixed" ? ", with some friction to work through" : ""}.</p>
+      <p>Your Suns are ${elLine(s.sun, s.elements.aSun, s.elements.bSun)}; your Moons are ${elLine(s.moon, s.elements.aMoon, s.elements.bMoon)}. This is <em>synastry</em>: comparing where the planets were in each birth chart and reading the angles between them.</p>
+      ${!p.timeKnown || S.birth.reliability !== "certificate" ? `<p class="fine">${!p.timeKnown ? `${nm}'s birth time is unknown, so their rising sign is left out and their Moon position is approximate (it moves about 13° a day).` : ""} ${S.birth.reliability !== "certificate" ? "Your birth time isn't certain, so your rising sign is left out." : ""}</p>` : ""}
+      <p class="fine">Compatibility astrology describes tendencies tradition associates with two charts. It can't tell you whether a relationship will work; that's up to the two of you.</p></article>
+    <div class="grid2">${themeCards}</div>`;
+}
+function ashtakootaHTML(p) {
+  const me = S.chart, them = personChart(p), role = p.role || "me";
+  const r = role === "me" ? C.ashtakoota(me, them) : C.ashtakoota(them, me);
+  const other = role === "me" ? C.ashtakoota(them, me) : C.ashtakoota(me, them);
+  const [tone, word, text] = C.gunaVerdict(r.total), nm = esc(p.name);
+  const rows = r.kootas.map((k) => `<tr><th scope="row">${k.name}<br><span class="fine">${esc(k.about)}</span></th><td><strong>${k.pts} / ${k.max}</strong></td>
+    <td>${esc(k.detail)}${k.dosha ? `<br><span class="fine">${k.dosha}${k.cancelled ? ": cancelled by a classical exception, so many astrologers don't count it against the match." : ": traditional matchmakers look at the full charts before deciding."}</span>` : ""}</td></tr>`).join("");
+  return `<article class="card lorenow"><header class="card-h"><h3>Ashtakoota: ${r.total} out of 36</h3>${tonePillL(tone, word)}</header>
+      <p class="inshort"><strong>In short:</strong> ${text}</p>
+      <p>Ashtakoota ("eight factors"), also called Guna Milan, is the traditional Vedic way of matching two people for marriage. It compares your birth Moons: their signs and nakshatras (${E.NAKSHATRAS[r.bride.nak]} and ${E.NAKSHATRAS[r.groom.nak]}).</p>
+      <div class="btns roleswitch" role="group" aria-label="Traditional roles"><span class="fine">The traditional tables assign a "bride" and a "groom" role:</span>
+        <button type="button" class="btn${role === "me" ? " btn-primary" : ""}" data-role="me">You as bride</button>
+        <button type="button" class="btn${role === "them" ? " btn-primary" : ""}" data-role="them">${nm} as bride</button></div>
+      ${other.total !== r.total ? `<p class="fine">With the roles swapped the score is ${other.total}, because a few factors are one-directional.</p>` : `<p class="fine">The score is the same either way round.</p>`}
+      <div class="tbl"><table class="panch"><tbody>${rows}</tbody></table></div>
+      ${!p.timeKnown ? `<p class="warn">${nm}'s birth time is unknown, so their Moon's nakshatra may be off by one, which can change several factors. Treat this score as approximate.</p>` : ""}
+      <p class="fine">Traditional families also check Manglik (Mars) placement and the full charts. A score is a starting point, not a verdict on a relationship.</p></article>`;
+}
+function viewCompat() {
+  const ps = people(), sel = ps.find((x) => x.id === S.pSel) || ps[0];
+  if (sel) S.pSel = sel.id;
+  const chips = ps.map((x) => `<button type="button" class="pchip${sel && x.id === sel.id ? " on" : ""}" data-pid="${x.id}" aria-pressed="${!!(sel && x.id === sel.id)}">${esc(x.name)}</button>`).join("");
+  return `
+  <section class="intro"><p class="eyebrow">Compatibility · ${SYS()}</p><h2>You and someone else</h2>
+    <p>Compare your chart with a partner's, a friend's or a family member's. ${isV() ? "Vedic mode uses Ashtakoota, the traditional 36-point marriage matching." : "Western mode reads the links between your two charts (synastry), theme by theme."} ${isV() ? "Switch to Western for a theme-by-theme reading." : "Switch to Vedic for the traditional 36-point score."}</p></section>
+  <div class="chips">${chips}<button type="button" class="btn" id="pAdd">+ Add someone</button></div>
+  ${compatForm()}
+  ${sel ? `${isV() ? ashtakootaHTML(sel) : synastryHTML(sel, sel.rel)}
+    <p class="fine">${esc(sel.name)}: born ${new Date(Date.UTC(sel.y, sel.m - 1, sel.d)).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}${sel.timeKnown ? ` at ${String(sel.h).padStart(2, "0")}:${String(sel.mi).padStart(2, "0")}` : " (time unknown)"} in ${esc(sel.place)}.
+      <button type="button" class="linkbtn" id="pDel">Remove ${esc(sel.name)}</button></p>
+    <div id="pDelConfirm" hidden class="confirm"><p>Remove ${esc(sel.name)} from this device?</p><div class="btns"><button type="button" class="btn btn-primary" id="pDelYes">Remove</button><button type="button" class="btn" id="pDelNo">Cancel</button></div></div>`
+    : `<article class="card"><p>Add someone to see how your charts fit together. You'll need their birth date and birthplace; the birth time helps but isn't required.</p></article>`}
+  ${S.isExample ? '<p class="warn">You\'re looking at the example chart. Enter your own birth details (top right) for a real comparison.</p>' : ""}`;
+}
+function bindCompat() {
+  const f = $("#pForm");
+  $("#pAdd").onclick = () => { f.hidden = false; $("#pName").focus(); };
+  $("#pCancel").onclick = () => { f.hidden = true; };
+  document.querySelectorAll("[data-pid]").forEach((b) => { b.onclick = () => { S.pSel = b.dataset.pid; render(); }; });
+  document.querySelectorAll("[data-role]").forEach((b) => { b.onclick = () => {
+    const ps = people(), x = ps.find((q) => q.id === S.pSel); if (x) { x.role = b.dataset.role; store.set(PEOPLE_KEY, ps); render(); } }; });
+  $("#pNoTime").onchange = (e) => { $("#pTime").disabled = e.target.checked; };
+  let chosen = null;
+  const inp = $("#pPlace"), res = $("#pPlaceRes");
+  inp.oninput = async () => {
+    chosen = null; $("#pPlacePicked").textContent = "";
+    await loadCities();
+    const list = searchCities(inp.value);
+    res.innerHTML = list.map((c, i) => `<li><button type="button" data-i="${i}">${esc(placeLabel(c))}</button></li>`).join("");
+    res.querySelectorAll("button").forEach((b) => { b.onclick = () => { chosen = list[+b.dataset.i]; inp.value = placeLabel(chosen); res.innerHTML = "";
+      $("#pPlacePicked").textContent = `Using ${placeLabel(chosen)} (${chosen.lat.toFixed(2)}, ${chosen.lon.toFixed(2)}).`; }; });
+  };
+  f.onsubmit = (e) => {
+    e.preventDefault();
+    const err = (m) => { const el = $("#pErr"); el.textContent = m; el.hidden = false; };
+    const name = $("#pName").value.trim(), dv = $("#pDate").value, noTime = $("#pNoTime").checked, tv = $("#pTime").value || "12:00";
+    if (!name) return err("Please enter a name.");
+    if (!dv) return err("Please enter their birth date.");
+    if (!chosen) return err("Please pick their birthplace from the suggestions.");
+    const [y, m, d] = dv.split("-").map(Number), [h, mi] = tv.split(":").map(Number);
+    const ps = people(), id = "p" + Date.now().toString(36);
+    ps.push({ id, name, rel: $("#pRel").value, y, m, d, h, mi, timeKnown: !noTime, lat: chosen.lat, lon: chosen.lon, tz: chosen.tz, place: placeLabel(chosen), role: "me" });
+    store.set(PEOPLE_KEY, ps); S.pSel = id; render();
+  };
+  const del = $("#pDel");
+  if (del) {
+    del.onclick = () => { $("#pDelConfirm").hidden = false; };
+    $("#pDelNo").onclick = () => { $("#pDelConfirm").hidden = true; };
+    $("#pDelYes").onclick = () => { store.set(PEOPLE_KEY, people().filter((x) => x.id !== S.pSel)); if (S.pCache) delete S.pCache[S.pSel]; S.pSel = null; render(); };
+  }
 }
 
 // ---------------------------------------------------------------- Numerology

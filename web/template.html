@@ -30,6 +30,14 @@
 .gate-check { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 14px; font-weight: 500; color: var(--ink); font-size: 0.95rem; }
 .gate-check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--rose); flex: none; }
 .gate-box .btn-primary[disabled] { opacity: 0.45; cursor: not-allowed; }
+/* Compatibility */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 16px; }
+.pchip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 7px 14px; font: 500 0.92rem var(--font-body); cursor: pointer; }
+.pchip.on { background: var(--rose); color: #fff; border-color: var(--rose); }
+.compatform .formgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 18px; }
+.compatform .row { display: flex; flex-direction: column; gap: 4px; }
+.checkline { display: flex; gap: 6px; align-items: center; font-size: 0.85rem; }
+.roleswitch { align-items: center; flex-wrap: wrap; margin: 10px 0 4px; }
 </style>
 <style>
 /* Layout: a moonlit almanac. Header with emblem, tabs below, single reading column
