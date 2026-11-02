@@ -1,77 +1,77 @@
 {
  "birth": {
-  "local": "1990-06-15 14:30 (America/Chicago)",
-  "utc": "1990-06-15T19:30+00:00",
-  "lat": 30.2672,
-  "lon": -97.7431,
+  "local": "1990-06-15 14:30 (America/New_York)",
+  "utc": "1990-06-15T18:30+00:00",
+  "lat": 40.7128,
+  "lon": -74.006,
   "time_reliability": "certificate"
  },
  "western": {
   "system": "Western (tropical)",
-  "jd_ut": 2448058.3125,
+  "jd_ut": 2448058.2708333335,
   "sect": "day",
-  "ascendant": "7\u00b027' Libra",
-  "asc_lon": 187.4569128024696,
-  "midheaven": "7\u00b053' Cancer",
-  "mc_lon": 97.87784883151922,
+  "ascendant": "13\u00b042' Libra",
+  "asc_lon": 193.69540863493808,
+  "midheaven": "15\u00b055' Cancer",
+  "mc_lon": 105.92209622199996,
   "placidus_cusps": [
-   "7\u00b027' Libra",
-   "5\u00b034' Scorpio",
-   "6\u00b004' Sagittarius",
-   "7\u00b053' Capricorn",
-   "9\u00b044' Aquarius",
-   "10\u00b006' Pisces",
-   "7\u00b027' Aries",
-   "5\u00b034' Taurus",
-   "6\u00b004' Gemini",
-   "7\u00b053' Cancer",
-   "9\u00b044' Leo",
-   "10\u00b006' Virgo"
+   "13\u00b042' Libra",
+   "10\u00b046' Scorpio",
+   "11\u00b055' Sagittarius",
+   "15\u00b055' Capricorn",
+   "19\u00b018' Aquarius",
+   "18\u00b054' Pisces",
+   "13\u00b042' Aries",
+   "10\u00b046' Taurus",
+   "11\u00b055' Gemini",
+   "15\u00b055' Cancer",
+   "19\u00b018' Leo",
+   "18\u00b054' Virgo"
   ],
   "planets": {
    "Sun": {
-    "position": "24\u00b026' Gemini",
-    "lon": 84.428,
+    "position": "24\u00b023' Gemini",
+    "lon": 84.3882,
     "sign": "Gemini",
     "house_placidus": 9,
     "house_whole_sign": 9,
     "retrograde": false
    },
    "Moon": {
-    "position": "19\u00b033' Pisces",
-    "lon": 349.5511,
+    "position": "18\u00b059' Pisces",
+    "lon": 348.99,
     "sign": "Pisces",
     "house_placidus": 6,
     "house_whole_sign": 6,
     "retrograde": false
    },
    "Mercury": {
-    "position": "6\u00b014' Gemini",
-    "lon": 66.2292,
+    "position": "6\u00b009' Gemini",
+    "lon": 66.1571,
     "sign": "Gemini",
-    "house_placidus": 9,
+    "house_placidus": 8,
     "house_whole_sign": 9,
     "retrograde": false
    },
    "Venus": {
-    "position": "19\u00b009' Taurus",
-    "lon": 49.1452,
+    "position": "19\u00b006' Taurus",
+    "lon": 49.0961,
     "sign": "Taurus",
     "house_placidus": 8,
     "house_whole_sign": 8,
     "retrograde": false
    },
    "Mars": {
-    "position": "11\u00b016' Aries",
-    "lon": 11.2659,
+    "position": "11\u00b014' Aries",
+    "lon": 11.236,
     "sign": "Aries",
-    "house_placidus": 7,
+    "house_placidus": 6,
     "house_whole_sign": 7,
     "retrograde": false
    },
    "Jupiter": {
     "position": "15\u00b057' Cancer",
-    "lon": 105.9572,
+    "lon": 105.9481,
     "sign": "Cancer",
     "house_placidus": 10,
     "house_whole_sign": 10,
@@ -79,7 +79,7 @@
    },
    "Saturn": {
     "position": "24\u00b001' Capricorn",
-    "lon": 294.0136,
+    "lon": 294.016,
     "sign": "Capricorn",
     "house_placidus": 4,
     "house_whole_sign": 4,
@@ -87,23 +87,23 @@
    },
    "Uranus": {
     "position": "8\u00b009' Capricorn",
-    "lon": 278.1531,
+    "lon": 278.1547,
     "sign": "Capricorn",
-    "house_placidus": 4,
+    "house_placidus": 3,
     "house_whole_sign": 4,
     "retrograde": true
    },
    "Neptune": {
     "position": "13\u00b043' Capricorn",
-    "lon": 283.7093,
+    "lon": 283.7103,
     "sign": "Capricorn",
-    "house_placidus": 4,
+    "house_placidus": 3,
     "house_whole_sign": 4,
     "retrograde": true
    },
    "Pluto": {
     "position": "15\u00b024' Scorpio",
-    "lon": 225.3953,
+    "lon": 225.3961,
     "sign": "Scorpio",
     "house_placidus": 2,
     "house_whole_sign": 2,
@@ -111,7 +111,7 @@
    },
    "Rahu": {
     "position": "9\u00b041' Aquarius",
-    "lon": 309.6813,
+    "lon": 309.6835,
     "sign": "Aquarius",
     "house_placidus": 4,
     "house_whole_sign": 5,
@@ -119,7 +119,7 @@
    },
    "Ketu": {
     "position": "9\u00b041' Leo",
-    "lon": 129.6813,
+    "lon": 129.6835,
     "sign": "Leo",
     "house_placidus": 10,
     "house_whole_sign": 11,
@@ -133,7 +133,7 @@
      "Venus"
     ],
     "aspect": "sextile",
-    "orb": 0.41
+    "orb": 0.11
    },
    {
     "between": [
@@ -141,7 +141,7 @@
      "Pluto"
     ],
     "aspect": "trine",
-    "orb": 0.56
+    "orb": 0.55
    },
    {
     "between": [
@@ -157,7 +157,7 @@
      "Neptune"
     ],
     "aspect": "opposition",
-    "orb": 2.25
+    "orb": 2.24
    },
    {
     "between": [
@@ -165,7 +165,15 @@
      "Neptune"
     ],
     "aspect": "square",
-    "orb": 2.44
+    "orb": 2.47
+   },
+   {
+    "between": [
+     "Moon",
+     "Jupiter"
+    ],
+    "aspect": "trine",
+    "orb": 3.04
    },
    {
     "between": [
@@ -173,7 +181,7 @@
      "Uranus"
     ],
     "aspect": "square",
-    "orb": 3.11
+    "orb": 3.08
    },
    {
     "between": [
@@ -181,12 +189,12 @@
      "Jupiter"
     ],
     "aspect": "sextile",
-    "orb": 3.19
+    "orb": 3.15
    },
    {
     "between": [
      "Moon",
-     "Jupiter"
+     "Pluto"
     ],
     "aspect": "trine",
     "orb": 3.59
@@ -197,15 +205,7 @@
      "Pluto"
     ],
     "aspect": "opposition",
-    "orb": 3.75
-   },
-   {
-    "between": [
-     "Moon",
-     "Pluto"
-    ],
-    "aspect": "trine",
-    "orb": 4.16
+    "orb": 3.7
    },
    {
     "between": [
@@ -213,7 +213,7 @@
      "Jupiter"
     ],
     "aspect": "square",
-    "orb": 4.69
+    "orb": 4.71
    },
    {
     "between": [
@@ -221,15 +221,7 @@
      "Saturn"
     ],
     "aspect": "trine",
-    "orb": 4.87
-   },
-   {
-    "between": [
-     "Sun",
-     "Moon"
-    ],
-    "aspect": "square",
-    "orb": 4.88
+    "orb": 4.92
    },
    {
     "between": [
@@ -237,7 +229,15 @@
      "Neptune"
     ],
     "aspect": "trine",
-    "orb": 5.44
+    "orb": 5.39
+   },
+   {
+    "between": [
+     "Sun",
+     "Moon"
+    ],
+    "aspect": "square",
+    "orb": 5.4
    },
    {
     "between": [
@@ -253,7 +253,7 @@
      "Uranus"
     ],
     "aspect": "opposition",
-    "orb": 7.8
+    "orb": 7.79
    }
   ]
  },
@@ -262,50 +262,50 @@
   "profected_house": 1,
   "profected_sign": "Libra",
   "lord_of_year": "Venus",
-  "lord_natal_position": "19\u00b009' Taurus",
+  "lord_natal_position": "19\u00b006' Taurus",
   "lord_natal_house_whole_sign": 8,
   "note": "Whole-sign houses from the Ascendant; advances one sign per birthday."
  },
  "lots": {
   "Fortune": {
-   "position": "2\u00b035' Cancer",
-   "lon": 92.58,
+   "position": "8\u00b018' Cancer",
+   "lon": 98.2972,
    "sign": "Cancer",
    "house_whole_sign": 10
   },
   "Spirit": {
-   "position": "12\u00b020' Capricorn",
-   "lon": 282.3338,
+   "position": "19\u00b006' Capricorn",
+   "lon": 289.0936,
    "sign": "Capricorn",
    "house_whole_sign": 4
   },
   "Eros": {
-   "position": "14\u00b016' Aquarius",
-   "lon": 314.2683,
+   "position": "13\u00b042' Aquarius",
+   "lon": 313.6979,
    "sign": "Aquarius",
    "house_whole_sign": 5
   },
   "Necessity": {
-   "position": "3\u00b048' Scorpio",
-   "lon": 213.8077,
+   "position": "15\u00b050' Scorpio",
+   "lon": 225.8355,
    "sign": "Scorpio",
    "house_whole_sign": 2
   },
   "Courage": {
-   "position": "28\u00b046' Sagittarius",
-   "lon": 268.771,
-   "sign": "Sagittarius",
-   "house_whole_sign": 3
+   "position": "10\u00b045' Capricorn",
+   "lon": 280.7566,
+   "sign": "Capricorn",
+   "house_whole_sign": 4
   },
   "Victory": {
-   "position": "11\u00b005' Aries",
-   "lon": 11.0803,
+   "position": "10\u00b033' Aries",
+   "lon": 10.5499,
    "sign": "Aries",
    "house_whole_sign": 7
   },
   "Nemesis": {
-   "position": "16\u00b001' Pisces",
-   "lon": 346.0233,
+   "position": "27\u00b059' Pisces",
+   "lon": 357.9766,
    "sign": "Pisces",
    "house_whole_sign": 6
   }
@@ -345,17 +345,17 @@
  "vedic": {
   "system": "Vedic (sidereal, Lahiri ayanamsa, whole-sign houses)",
   "ayanamsa": 23.7237,
-  "lagna": "13\u00b044' Virgo",
-  "lagna_lon": 163.7296086505215,
+  "lagna": "19\u00b058' Virgo",
+  "lagna_lon": 169.96810533062515,
   "lagna_nakshatra": {
    "nakshatra": "Hasta",
-   "pada": 2,
+   "pada": 3,
    "lord": "Moon"
   },
   "planets": {
    "Sun": {
-    "position": "0\u00b042' Gemini",
-    "lon": 60.7007,
+    "position": "0\u00b040' Gemini",
+    "lon": 60.6609,
     "sign": "Gemini",
     "house": 10,
     "retrograde": false,
@@ -364,8 +364,8 @@
     "lord": "Mars"
    },
    "Moon": {
-    "position": "25\u00b049' Aquarius",
-    "lon": 325.8238,
+    "position": "25\u00b016' Aquarius",
+    "lon": 325.2627,
     "sign": "Aquarius",
     "house": 6,
     "retrograde": false,
@@ -374,8 +374,8 @@
     "lord": "Jupiter"
    },
    "Mercury": {
-    "position": "12\u00b030' Taurus",
-    "lon": 42.5019,
+    "position": "12\u00b026' Taurus",
+    "lon": 42.4298,
     "sign": "Taurus",
     "house": 9,
     "retrograde": false,
@@ -384,8 +384,8 @@
     "lord": "Moon"
    },
    "Venus": {
-    "position": "25\u00b025' Aries",
-    "lon": 25.4178,
+    "position": "25\u00b022' Aries",
+    "lon": 25.3688,
     "sign": "Aries",
     "house": 8,
     "retrograde": false,
@@ -394,8 +394,8 @@
     "lord": "Venus"
    },
    "Mars": {
-    "position": "17\u00b032' Pisces",
-    "lon": 347.5386,
+    "position": "17\u00b031' Pisces",
+    "lon": 347.5087,
     "sign": "Pisces",
     "house": 7,
     "retrograde": false,
@@ -404,8 +404,8 @@
     "lord": "Mercury"
    },
    "Jupiter": {
-    "position": "22\u00b014' Gemini",
-    "lon": 82.2299,
+    "position": "22\u00b013' Gemini",
+    "lon": 82.2208,
     "sign": "Gemini",
     "house": 10,
     "retrograde": false,
@@ -415,7 +415,7 @@
    },
    "Saturn": {
     "position": "0\u00b017' Capricorn",
-    "lon": 270.2863,
+    "lon": 270.2887,
     "sign": "Capricorn",
     "house": 5,
     "retrograde": true,
@@ -425,7 +425,7 @@
    },
    "Rahu": {
     "position": "15\u00b057' Capricorn",
-    "lon": 285.954,
+    "lon": 285.9562,
     "sign": "Capricorn",
     "house": 5,
     "retrograde": true,
@@ -435,7 +435,7 @@
    },
    "Ketu": {
     "position": "15\u00b057' Cancer",
-    "lon": 105.954,
+    "lon": 105.9562,
     "sign": "Cancer",
     "house": 11,
     "retrograde": true,
@@ -445,111 +445,111 @@
    }
   },
   "vimshottari": {
-   "balance_at_birth_years": 9.011,
+   "balance_at_birth_years": 9.685,
    "mahadashas": [
     {
      "mahadasha": "Jupiter",
-     "start": "1983-06-20",
-     "end": "1999-06-20"
+     "start": "1984-02-21",
+     "end": "2000-02-21"
     },
     {
      "mahadasha": "Saturn",
-     "start": "1999-06-20",
-     "end": "2018-06-19"
+     "start": "2000-02-21",
+     "end": "2019-02-20"
     },
     {
      "mahadasha": "Mercury",
-     "start": "2018-06-19",
-     "end": "2035-06-20"
+     "start": "2019-02-20",
+     "end": "2036-02-21"
     },
     {
      "mahadasha": "Ketu",
-     "start": "2035-06-20",
-     "end": "2042-06-19"
+     "start": "2036-02-21",
+     "end": "2043-02-20"
     },
     {
      "mahadasha": "Venus",
-     "start": "2042-06-19",
-     "end": "2062-06-19"
+     "start": "2043-02-20",
+     "end": "2063-02-20"
     },
     {
      "mahadasha": "Sun",
-     "start": "2062-06-19",
-     "end": "2068-06-19"
+     "start": "2063-02-20",
+     "end": "2069-02-20"
     },
     {
      "mahadasha": "Moon",
-     "start": "2068-06-19",
-     "end": "2078-06-19"
+     "start": "2069-02-20",
+     "end": "2079-02-20"
     },
     {
      "mahadasha": "Mars",
-     "start": "2078-06-19",
-     "end": "2085-06-19"
+     "start": "2079-02-20",
+     "end": "2086-02-20"
     },
     {
      "mahadasha": "Rahu",
-     "start": "2085-06-19",
-     "end": "2103-06-21"
+     "start": "2086-02-20",
+     "end": "2104-02-22"
     }
    ],
    "current": {
     "mahadasha": "Mercury",
-    "start": "2018-06-19",
-    "end": "2035-06-20",
+    "start": "2019-02-20",
+    "end": "2036-02-21",
     "antardashas": [
      {
       "antardasha": "Mercury",
-      "start": "2018-06-19",
-      "end": "2020-11-15",
+      "start": "2019-02-20",
+      "end": "2021-07-19",
       "current": false
      },
      {
       "antardasha": "Ketu",
-      "start": "2020-11-15",
-      "end": "2021-11-12",
+      "start": "2021-07-19",
+      "end": "2022-07-16",
       "current": false
      },
      {
       "antardasha": "Venus",
-      "start": "2021-11-12",
-      "end": "2024-09-12",
+      "start": "2022-07-16",
+      "end": "2025-05-16",
       "current": false
      },
      {
       "antardasha": "Sun",
-      "start": "2024-09-12",
-      "end": "2025-07-20",
+      "start": "2025-05-16",
+      "end": "2026-03-23",
       "current": false
      },
      {
       "antardasha": "Moon",
-      "start": "2025-07-20",
-      "end": "2026-12-19",
+      "start": "2026-03-23",
+      "end": "2027-08-22",
       "current": true
      },
      {
       "antardasha": "Mars",
-      "start": "2026-12-19",
-      "end": "2027-12-16",
+      "start": "2027-08-22",
+      "end": "2028-08-18",
       "current": false
      },
      {
       "antardasha": "Rahu",
-      "start": "2027-12-16",
-      "end": "2030-07-05",
+      "start": "2028-08-18",
+      "end": "2031-03-08",
       "current": false
      },
      {
       "antardasha": "Jupiter",
-      "start": "2030-07-05",
-      "end": "2032-10-10",
+      "start": "2031-03-08",
+      "end": "2033-06-13",
       "current": false
      },
      {
       "antardasha": "Saturn",
-      "start": "2032-10-10",
-      "end": "2035-06-20",
+      "start": "2033-06-13",
+      "end": "2036-02-21",
       "current": false
      }
     ]
@@ -559,8 +559,8 @@
  "kp": {
   "planets": {
    "Sun": {
-    "position": "0\u00b048' Gemini",
-    "lon": 60.7976,
+    "position": "0\u00b045' Gemini",
+    "lon": 60.7578,
     "house": 9,
     "retrograde": false,
     "sign_lord": "Mercury",
@@ -569,19 +569,19 @@
     "kp_number": 42
    },
    "Moon": {
-    "position": "25\u00b055' Aquarius",
-    "lon": 325.9207,
+    "position": "25\u00b022' Aquarius",
+    "lon": 325.3595,
     "house": 6,
     "retrograde": false,
     "sign_lord": "Saturn",
     "star_lord": "Jupiter",
-    "sub_lord": "Ketu",
-    "kp_number": 225
+    "sub_lord": "Mercury",
+    "kp_number": 224
    },
    "Mercury": {
-    "position": "12\u00b036' Taurus",
-    "lon": 42.5987,
-    "house": 9,
+    "position": "12\u00b032' Taurus",
+    "lon": 42.5267,
+    "house": 8,
     "retrograde": false,
     "sign_lord": "Venus",
     "star_lord": "Moon",
@@ -589,8 +589,8 @@
     "kp_number": 31
    },
    "Venus": {
-    "position": "25\u00b031' Aries",
-    "lon": 25.5147,
+    "position": "25\u00b028' Aries",
+    "lon": 25.4657,
     "house": 8,
     "retrograde": false,
     "sign_lord": "Mars",
@@ -599,9 +599,9 @@
     "kp_number": 17
    },
    "Mars": {
-    "position": "17\u00b038' Pisces",
-    "lon": 347.6355,
-    "house": 7,
+    "position": "17\u00b036' Pisces",
+    "lon": 347.6055,
+    "house": 6,
     "retrograde": false,
     "sign_lord": "Jupiter",
     "star_lord": "Mercury",
@@ -609,8 +609,8 @@
     "kp_number": 241
    },
    "Jupiter": {
-    "position": "22\u00b020' Gemini",
-    "lon": 82.3267,
+    "position": "22\u00b019' Gemini",
+    "lon": 82.3177,
     "house": 10,
     "retrograde": false,
     "sign_lord": "Mercury",
@@ -620,7 +620,7 @@
    },
    "Saturn": {
     "position": "0\u00b023' Capricorn",
-    "lon": 270.3831,
+    "lon": 270.3856,
     "house": 4,
     "retrograde": true,
     "sign_lord": "Saturn",
@@ -630,7 +630,7 @@
    },
    "Rahu": {
     "position": "16\u00b003' Capricorn",
-    "lon": 286.0509,
+    "lon": 286.0531,
     "house": 4,
     "retrograde": true,
     "sign_lord": "Saturn",
@@ -640,7 +640,7 @@
    },
    "Ketu": {
     "position": "16\u00b003' Cancer",
-    "lon": 106.0509,
+    "lon": 106.0531,
     "house": 10,
     "retrograde": true,
     "sign_lord": "Moon",
@@ -652,111 +652,111 @@
   "cusps": [
    {
     "house": 1,
-    "position": "13\u00b050' Virgo",
-    "lon": 163.8265,
+    "position": "20\u00b004' Virgo",
+    "lon": 170.065,
     "sign_lord": "Mercury",
     "star_lord": "Moon",
-    "sub_lord": "Rahu",
-    "kp_number": 114
+    "sub_lord": "Ketu",
+    "kp_number": 118
    },
    {
     "house": 2,
-    "position": "11\u00b056' Libra",
-    "lon": 191.9282,
+    "position": "17\u00b008' Libra",
+    "lon": 197.1408,
     "sign_lord": "Venus",
     "star_lord": "Rahu",
-    "sub_lord": "Saturn",
-    "kp_number": 132
+    "sub_lord": "Venus",
+    "kp_number": 135
    },
    {
     "house": 3,
-    "position": "12\u00b026' Scorpio",
-    "lon": 222.4393,
+    "position": "18\u00b017' Scorpio",
+    "lon": 228.2889,
     "sign_lord": "Mars",
-    "star_lord": "Saturn",
-    "sub_lord": "Mars",
-    "kp_number": 155
+    "star_lord": "Mercury",
+    "sub_lord": "Mercury",
+    "kp_number": 158
    },
    {
     "house": 4,
-    "position": "14\u00b015' Sagittarius",
-    "lon": 254.2474,
+    "position": "22\u00b017' Sagittarius",
+    "lon": 262.2916,
     "sign_lord": "Jupiter",
     "star_lord": "Venus",
-    "sub_lord": "Venus",
-    "kp_number": 176
+    "sub_lord": "Saturn",
+    "kp_number": 182
    },
    {
     "house": 5,
-    "position": "16\u00b006' Capricorn",
-    "lon": 286.1062,
+    "position": "25\u00b040' Capricorn",
+    "lon": 295.675,
     "sign_lord": "Saturn",
-    "star_lord": "Moon",
-    "sub_lord": "Saturn",
-    "kp_number": 199
+    "star_lord": "Mars",
+    "sub_lord": "Rahu",
+    "kp_number": 205
    },
    {
     "house": 6,
-    "position": "16\u00b028' Aquarius",
-    "lon": 316.4681,
+    "position": "25\u00b016' Aquarius",
+    "lon": 325.2723,
     "sign_lord": "Saturn",
-    "star_lord": "Rahu",
-    "sub_lord": "Venus",
-    "kp_number": 218
+    "star_lord": "Jupiter",
+    "sub_lord": "Mercury",
+    "kp_number": 224
    },
    {
     "house": 7,
-    "position": "13\u00b050' Pisces",
-    "lon": 343.8265,
+    "position": "20\u00b004' Pisces",
+    "lon": 350.065,
     "sign_lord": "Jupiter",
-    "star_lord": "Saturn",
-    "sub_lord": "Rahu",
-    "kp_number": 239
+    "star_lord": "Mercury",
+    "sub_lord": "Venus",
+    "kp_number": 243
    },
    {
     "house": 8,
-    "position": "11\u00b056' Aries",
-    "lon": 11.9282,
+    "position": "17\u00b008' Aries",
+    "lon": 17.1408,
     "sign_lord": "Mars",
-    "star_lord": "Ketu",
-    "sub_lord": "Mercury",
-    "kp_number": 9
+    "star_lord": "Venus",
+    "sub_lord": "Moon",
+    "kp_number": 12
    },
    {
     "house": 9,
-    "position": "12\u00b026' Taurus",
-    "lon": 42.4393,
+    "position": "18\u00b017' Taurus",
+    "lon": 48.2889,
     "sign_lord": "Venus",
     "star_lord": "Moon",
-    "sub_lord": "Rahu",
-    "kp_number": 31
+    "sub_lord": "Mercury",
+    "kp_number": 34
    },
    {
     "house": 10,
-    "position": "14\u00b015' Gemini",
-    "lon": 74.2474,
+    "position": "22\u00b017' Gemini",
+    "lon": 82.2916,
     "sign_lord": "Mercury",
-    "star_lord": "Rahu",
-    "sub_lord": "Mercury",
-    "kp_number": 50
+    "star_lord": "Jupiter",
+    "sub_lord": "Saturn",
+    "kp_number": 57
    },
    {
     "house": 11,
-    "position": "16\u00b006' Cancer",
-    "lon": 106.1062,
+    "position": "25\u00b040' Cancer",
+    "lon": 115.675,
     "sign_lord": "Moon",
-    "star_lord": "Saturn",
-    "sub_lord": "Jupiter",
-    "kp_number": 74
+    "star_lord": "Mercury",
+    "sub_lord": "Rahu",
+    "kp_number": 81
    },
    {
     "house": 12,
-    "position": "16\u00b028' Leo",
-    "lon": 136.4681,
+    "position": "25\u00b016' Leo",
+    "lon": 145.2723,
     "sign_lord": "Sun",
     "star_lord": "Venus",
-    "sub_lord": "Moon",
-    "kp_number": 95
+    "sub_lord": "Mercury",
+    "kp_number": 100
    }
   ],
   "significators": {
@@ -808,11 +808,13 @@
    },
    "6": {
     "A_in_star_of_occupants": [
+     "Sun",
      "Mercury",
      "Rahu"
     ],
     "B_occupants": [
-     "Moon"
+     "Moon",
+     "Mars"
     ],
     "C_in_star_of_owner": [
      "Ketu"
@@ -820,12 +822,8 @@
     "D_owner": "Saturn"
    },
    "7": {
-    "A_in_star_of_occupants": [
-     "Sun"
-    ],
-    "B_occupants": [
-     "Mars"
-    ],
+    "A_in_star_of_occupants": [],
+    "B_occupants": [],
     "C_in_star_of_owner": [
      "Moon",
      "Jupiter"
@@ -834,9 +832,11 @@
    },
    "8": {
     "A_in_star_of_occupants": [
-     "Venus"
+     "Venus",
+     "Mars"
     ],
     "B_occupants": [
+     "Mercury",
      "Venus"
     ],
     "C_in_star_of_owner": [
@@ -846,12 +846,10 @@
    },
    "9": {
     "A_in_star_of_occupants": [
-     "Mars",
      "Saturn"
     ],
     "B_occupants": [
-     "Sun",
-     "Mercury"
+     "Sun"
     ],
     "C_in_star_of_owner": [
      "Venus"

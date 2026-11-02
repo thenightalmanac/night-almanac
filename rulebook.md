@@ -303,3 +303,36 @@ Checked against the traditional rules and published reference values:
 - Lots: https://www.augurine.com/learn/arabic-parts ; family/marriage lots: augurine.com lot calculators (citing Dorotheus, Valens, Firmicus)
 - Void-of-course check: https://cafeastrology.com/void-of-course-moon-times.html
 - Panchanga check: https://vedpanchang.com/panchang/omaha/2026-11-01
+
+## 12. Compatibility
+
+### Western synastry
+- Aspects between the two charts' Sun–Saturn (and the Ascendant when that person's birth time is reliable). Orbs: conjunction 8° with a luminary, 6° otherwise; square, trine, opposition 7°/5°; sextile 4°/3°.
+- Read by theme, each with the planet pairs tradition associates with it:
+  - Attraction/spark: Venus–Mars, Sun–Venus, Venus–Venus, Mars–Mars, Venus/Mars–Ascendant (tension between Mars and Venus still counts as chemistry).
+  - Emotional bond: Sun–Moon (the classic marriage signature), Moon–Moon, Moon–Venus, Moon–Ascendant.
+  - Communication: Mercury–Mercury, Mercury–Moon, Sun–Mercury, Mercury–Jupiter, Mercury–Venus.
+  - Staying power: Saturn and Jupiter to Sun/Moon/Venus, Sun–Sun. Saturn's easy aspects and conjunctions = commitment; hard aspects = heaviness. Jupiter's hard aspects are mild (excess, not damage).
+  - Friction: Mars to Sun/Moon/Mercury/Saturn, Saturn–Mercury.
+- Element harmony of Sun and Moon signs (same, complementary fire–air / earth–water, or different).
+- No numeric "score" is given in Western mode; tradition has no standard one.
+
+### Vedic Ashtakoota (Guna Milan, 36 points)
+- Uses each person's sidereal (Lahiri) Moon sign and nakshatra. The tradition assigns bride and groom roles; the app lets the user pick and shows the swapped score.
+- Varna (1): sign → Brahmin (Cancer, Scorpio, Pisces), Kshatriya (Aries, Leo, Sagittarius), Vaishya (Taurus, Virgo, Capricorn), Shudra (Gemini, Libra, Aquarius); 1 point if the groom's is equal or higher.
+- Vashya (2): Chatushpad (Aries, Taurus, Sagittarius 15–30°, Capricorn 0–15°), Dwipad (Gemini, Virgo, Libra, Sagittarius 0–15°, Aquarius), Jalachar (Cancer, Capricorn 15–30°, Pisces), Vanachar (Leo), Keet (Scorpio); bride × groom matrix from vedicmarga.com.
+- Tara (3): count both ways (inclusive); remainders 3, 5, 7 mod 9 are unfavorable; 3 / 1.5 / 0 points.
+- Yoni (4): nakshatra → 14 animals; standard symmetric 14×14 table used by matching software. Sources agree on the diagonal (4) and the seven enemy pairs (0: Horse–Buffalo, Elephant–Lion, Sheep–Monkey, Serpent–Mongoose, Dog–Deer, Cat–Rat, Cow–Tiger); commentaries differ slightly on some 1–3 values.
+- Graha Maitri (5): natural friendships of the Moon-sign lords (Parashara); FF 5, F+N 4, NN 3, F+E 1, N+E 0.5, EE 0.
+- Gana (6): bride × groom: Deva/Deva 6, Deva/Manushya 5, Deva/Rakshasa 1; Manushya/Deva 6, Manushya/Manushya 6, Manushya/Rakshasa 0; Rakshasa/Deva 0, Rakshasa/Manushya 0, Rakshasa/Rakshasa 6.
+- Bhakoot (7): 0 for Moon signs 2/12, 5/9 or 6/8 apart; flagged as cancelled when both signs share a lord or the lords are mutual friends.
+- Nadi (8): Adi/Madhya/Antya; 0 if the same; flagged as cancelled for same sign with different nakshatras, or same nakshatra with different pada or sign.
+- Verdict: 33+ excellent, 25–32 very good, 18–24 acceptable, under 18 below the usual minimum.
+- Checked against a published worked example (hindutone.com: Rohini bride, Pushya groom): Varna 1, Tara 1.5, Graha Maitri 0.5, Bhakoot 7, Nadi 8, all matching.
+- Not implemented: Manglik (Kuja) dosha, which is usually presented in a fear-based way; the app mentions that families check it.
+
+### Sources
+- https://vedicmarga.com/guna-milan-explained/
+- https://hindutone.com/astrology/kundli-matching-ashtakoota-guna-milan-36-gunas/
+- https://roxyapi.com/blogs/gun-milan-scoring-algorithm-kundli-matching
+- https://www.onlinejyotish.com/articles/marriage-matching/english/yoni-kootam.php
