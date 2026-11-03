@@ -435,12 +435,21 @@ function viewToday() {
   const label = S.dayOff === 0 ? "Today" : S.dayOff === 1 ? "Tomorrow" : S.dayOff === -1 ? "Yesterday" : "Your day";
   return startHere() + moonHero(ms) + (isV() ? todayVedic(ms, label) : todayWestern(ms, label));
 }
+// One headline for the day, taken from the same area summary shown below it, so the two never disagree.
+const DAY_HEAD = { good: ["Smooth day", "Things should flow more easily than usual. A good day to ask for something or make plans."],
+  mixed: ["Steady day", "A normal day, with a mix of easy and harder moments."],
+  low: ["Bumpy day", "Expect a little more friction than usual. Keep plans flexible and avoid picking fights."] };
+function dayHead(ms, label, tone) {
+  const d0 = ms - DAY / 2, o = A.summarize(areaEvents(d0, d0 + DAY - 1, "day"), "day").overall;
+  const text = tone && tone[1] === o ? tone[2] : DAY_HEAD[o][1];
+  return tabHead(`${label}: ${tone && tone[1] === o ? tone[0] : DAY_HEAD[o][0]}`, `${dayLabel(ms)}. ${text}`);
+}
 function todayWestern(ms, label) {
   const d = F.westernDay(S.chart, ms);
   const y = S.prof.find((p) => p.start <= ms && ms < p.end);
   const k = y ? Math.floor((ms - y.start) / ((y.end - y.start) / 12)) : 0, mh = y ? ((y.house - 1 + k) % 12) + 1 : null;
   return `
-  ${tabHead(`${label}: ${d.tone[0]}`, `${dayLabel(ms)}. ${d.tone[2]}`)}
+  ${dayHead(ms, label, d.tone)}
   ${dayNav(ms)}
   ${dayAreasHTML(ms)}
   ${skyChartHTML(ms)}
@@ -488,7 +497,7 @@ function todayVedic(ms, label) {
   const ss = S.sade;
   const waxing = d.tithi.startsWith("Shukla") || d.tithi.startsWith("Purnima");
   return `
-  ${tabHead(`${label}: ${d.tone[0]}`, `${dayLabel(ms)}. ${d.tone[2]}`)}
+  ${dayHead(ms, label, d.tone)}
   ${dayNav(ms)}
   ${dayAreasHTML(ms)}
   ${skyChartHTML(ms)}
